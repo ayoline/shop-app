@@ -1,4 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
+
+import './screens/products_overview_screen.dart';
 
 void main() => runApp(
       const MyApp(),
@@ -12,25 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'MyShop',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
+        accentColor: Colors.deepOrange,
+        fontFamily: 'Lato',
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('MyShop'),
-      ),
-      body: const Center(
-        child: Text('Let\'s build a shop!'),
-      ),
+      home: ProductOverviewScreen(),
     );
   }
 }
