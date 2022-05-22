@@ -25,7 +25,8 @@ class ProductsGrid extends StatelessWidget {
         ),
         itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
               value: products[i],
-              child: const ProductItem(
+              child: ProductItem(
+                  // const in this variable generate a favorte error!
                   // products[i].id,
                   // products[i].title,
                   // products[i].imageUrl,
