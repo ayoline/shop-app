@@ -25,6 +25,7 @@ class ProductsGrid extends StatelessWidget {
         ),
         itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
               value: products[i],
+              // ignore: prefer_const_constructors
               child: ProductItem(
                   // const in this variable generate a favorte error!
                   // products[i].id,
