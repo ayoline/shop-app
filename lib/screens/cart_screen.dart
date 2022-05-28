@@ -19,17 +19,17 @@ class CartScreen extends StatelessWidget {
       body: Column(
         children: [
           Card(
-            margin: EdgeInsets.all(15),
+            margin: const EdgeInsets.all(15),
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Total',
                     style: TextStyle(fontSize: 20),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Chip(
                     label: Text(
                       '\$${cart.totalAmount}',
@@ -44,7 +44,7 @@ class CartScreen extends StatelessWidget {
                   // ignore: deprecated_member_use
                   FlatButton(
                     onPressed: () {},
-                    child: Text('ORDER NOW'),
+                    child: const Text('ORDER NOW'),
                     textColor: Theme.of(context).primaryColor,
                   )
                 ],
@@ -59,6 +59,7 @@ class CartScreen extends StatelessWidget {
             itemCount: cart.items.length,
             itemBuilder: (ctx, i) => CartItem(
               cart.items.values.toList()[i].id,
+              cart.items.keys.toList()[i],
               cart.items.values.toList()[i].price,
               cart.items.values.toList()[i].quantity,
               cart.items.values.toList()[i].title,
