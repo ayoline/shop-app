@@ -7,9 +7,11 @@
 <table>
     <tr>
        <td>provider</td>
+       <td>Intl</td>
     </tr>
     <tr>
         <td>^6.0.2</td>
+        <td>^0.17.0</td>
     </tr>
 </table>
 
