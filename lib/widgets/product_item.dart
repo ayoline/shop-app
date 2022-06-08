@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -51,6 +49,7 @@ class ProductItem extends StatelessWidget {
                   listen: false,
                 ).refreshProductList();
               },
+              // ignore: deprecated_member_use
               color: Theme.of(context).accentColor,
             ),
           ),
@@ -62,8 +61,8 @@ class ProductItem extends StatelessWidget {
             icon: const Icon(Icons.shopping_cart),
             onPressed: () {
               cart.addItem(product.id, product.price, product.title);
-              Scaffold.of(context).hideCurrentSnackBar();
-              Scaffold.of(context).showSnackBar(
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: const Text('Added item to Cart!'),
                   duration: const Duration(seconds: 2),
@@ -76,6 +75,7 @@ class ProductItem extends StatelessWidget {
                 ),
               );
             },
+            // ignore: deprecated_member_use
             color: Theme.of(context).accentColor,
           ),
         ),
