@@ -98,6 +98,18 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.number,
                 focusNode: _priceFocusNode,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter a price!';
+                  }
+                  if (double.tryParse(value) == null) {
+                    return 'Please enter a valid number!';
+                  }
+                  if (double.parse(value) <= 0) {
+                    return 'Please enter a positive number!';
+                  }
+                  return null;
+                },
                 onSaved: (value) {
                   _editedProduct = Product(
                     title: _editedProduct.title,
@@ -115,6 +127,15 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 focusNode: _descriptionFocusNode,
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_descriptionFocusNode);
+                },
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please provide a value!';
+                  }
+                  if (value.length < 10) {
+                    return 'Should be at least 10 characters long!';
+                  }
+                  return null;
                 },
                 onSaved: (value) {
                   _editedProduct = Product(
@@ -160,6 +181,16 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       focusNode: _imageUrlFocusNode,
                       onFieldSubmitted: (_) {
                         _saveForm();
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter a image URL!';
+                        }
+                        if (!value.startsWith('http') &&
+                            !value.startsWith('https')) {
+                          return 'Please enter a valid URL!';
+                        }
+                        return null;
                       },
                       onSaved: (value) {
                         _editedProduct = Product(
